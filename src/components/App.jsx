@@ -13,6 +13,9 @@ export class App extends Component{
   ],
   filter: ''
 }
+
+  
+
   render() {
     // const id = nanoid(10)
     return (
