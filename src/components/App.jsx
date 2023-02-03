@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
-// import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid'
 
 export class App extends Component{
   state = {
@@ -14,7 +14,15 @@ export class App extends Component{
   filter: ''
 }
 
-  
+  addContact = (name) => {
+    const contact = {
+      id: nanoid(10),
+      name,
+    }
+    // this.setState(({contacts}) => {
+    //   contacts: [contact, ...contacts]
+    // })
+  }
 
   render() {
     // const id = nanoid(10)
