@@ -25,6 +25,6 @@ export const ContactForm = () => {
                 <ErrorMessage name='name'/>
                 <button type="submit">Add contact</button>
                 </Form>
-            </Formik>
+        </Formik>
     )
 }
