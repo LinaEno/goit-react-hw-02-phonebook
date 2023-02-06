@@ -1,5 +1,6 @@
 import { Component } from 'react';
-
+import { Button } from 'components/ContactList/ContactList.styled';
+import { Label, Input } from 'components/Filter/Filter.styled';
 class Form extends Component {
   state = {
     name: '',
@@ -24,9 +25,9 @@ class Form extends Component {
   render() {
     return (
       <form autoComplete="off" onSubmit={this.handleSubmit}>
-        <label htmlFor="name">
+        <Label htmlFor="name">
           Name
-          <input
+          <Input
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -35,10 +36,10 @@ class Form extends Component {
             onChange={this.handleChange}
             value={this.state.name}
           />
-        </label>
-        <label htmlFor="number">
+        </Label>
+        <Label htmlFor="number">
           Number
-          <input
+          <Input
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -47,8 +48,8 @@ class Form extends Component {
             onChange={this.handleChange}
             value={this.state.number}
           />
-        </label>
-        <button type="submit">Add contact</button>
+        </Label>
+        <Button type="submit">Add contact</Button>
       </form>
     );
   }
