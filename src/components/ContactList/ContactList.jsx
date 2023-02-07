@@ -1,4 +1,5 @@
 import { Contact, Button } from './ContactList.styled';
+import PropTypes from 'prop-types';
 
 export const ContactList = ({ contacts, onDeleteContact }) => {
   return (
@@ -15,4 +16,10 @@ export const ContactList = ({ contacts, onDeleteContact }) => {
       })}
     </ul>
   );
+};
+
+ContactList.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };

@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Button } from 'components/ContactList/ContactList.styled';
 import { Label, Input } from 'components/Filter/Filter.styled';
+import PropTypes from 'prop-types';
 class Form extends Component {
   state = {
     name: '',
@@ -54,5 +55,10 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+};
 
 export default Form;
