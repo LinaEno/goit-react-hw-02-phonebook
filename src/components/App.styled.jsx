@@ -23,3 +23,10 @@ export const Title = styled.h2`
   text-align: center;
   line-height: ${p => p.theme.lineHeights.title};
 `;
+
+export const Message = styled.p`
+  font-size: ${p => p.theme.fontSizes.l};
+  color: ${p => p.theme.colors.mainText};
+  text-align: center;
+  line-height: ${p => p.theme.lineHeights.title};
+`;

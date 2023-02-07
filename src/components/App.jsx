@@ -4,7 +4,7 @@ import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
 import Form from './ContactForm/Form';
 import Filter from './Filter';
-import { Container, MainTitle, Title } from './App.styled';
+import { Container, MainTitle, Title, Message } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -19,8 +19,8 @@ export class App extends Component {
 
   addContact = newContact => {
     const sameName = this.state.contacts
-      .map(contact => contact.name)
-      .includes(newContact.name);
+      .map(contact => contact.name.toLowerCase())
+      .includes(newContact.name.toLowerCase());
 
     if (sameName) {
       alert(`${newContact.name} is already in contacts`);
@@ -61,11 +61,20 @@ export class App extends Component {
         {/* <ContactForm onSubmit={this.addContact} /> */}
         <Form onSubmit={this.addContact} />
         <Title>Contacts</Title>
-        <Filter value={this.state.filter} onChangeFilter={this.changeFilter} />
-        <ContactList
-          contacts={visibleContacts}
-          onDeleteContact={this.deleteContact}
-        />
+        {this.state.contacts.length === 0 ? (
+          <Message>There is no contacts</Message>
+        ) : (
+          <div>
+            <Filter
+              value={this.state.filter}
+              onChangeFilter={this.changeFilter}
+            />
+            <ContactList
+              contacts={visibleContacts}
+              onDeleteContact={this.deleteContact}
+            />
+          </div>
+        )}
       </Container>
     );
   }
