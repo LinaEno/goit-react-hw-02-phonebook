@@ -18,6 +18,14 @@ export class App extends Component {
   };
 
   addContact = newContact => {
+    const sameName = this.state.contacts
+      .map(contact => contact.name)
+      .includes(newContact.name);
+
+    if (sameName) {
+      alert(`${newContact.name} is already in contacts`);
+      return;
+    }
     const contact = {
       id: nanoid(10),
       ...newContact,
