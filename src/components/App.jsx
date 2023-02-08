@@ -64,7 +64,7 @@ export class App extends Component {
         {this.state.contacts.length === 0 ? (
           <Message>There is no contacts</Message>
         ) : (
-          <div>
+          <>
             <Filter
               value={this.state.filter}
               onChangeFilter={this.changeFilter}
@@ -73,7 +73,7 @@ export class App extends Component {
               contacts={visibleContacts}
               onDeleteContact={this.deleteContact}
             />
-          </div>
+          </>
         )}
       </Container>
     );
